@@ -3,7 +3,7 @@ const form = document.querySelector('form');
 const searchInput = document.querySelector('input');
 const resultsList = document.querySelector('#results')
 
-const BASE_URL = 'https://imdb-scrpr.now.sh/'; //temp
+const BASE_URL = 'http://node-env.eba-9dp3chmx.us-east-2.elasticbeanstalk.com/'; //temp
 
 form.addEventListener('submit', formSubmitted);
 

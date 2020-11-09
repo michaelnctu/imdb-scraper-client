@@ -1,6 +1,9 @@
 const main = document.querySelector('main');
 const imdbID = window.location.search.match(/imdbID=(.*)/)[1];
-const BASE_URL = 'https://imdb-scrpr.now.sh/';
+const BASE_URL = 'http://node-env.eba-9dp3chmx.us-east-2.elasticbeanstalk.com/';
+
+http://node-env.eba-9dp3chmx.us-east-2.elasticbeanstalk.com/
+
 
 function getMovie(imdbID) {
   return fetch(`${BASE_URL}movie/${imdbID}`)

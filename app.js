@@ -31,6 +31,7 @@ function showResults(results) {
     img.src = movie.image;
     const a = document.createElement('a');
     a.textContent = movie.title;
+
     a.href = '/movie.html?imdbID=' + movie.imdbID;
     li.appendChild(a);
     resultsList.appendChild(li);

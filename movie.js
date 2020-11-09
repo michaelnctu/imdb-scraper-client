@@ -31,6 +31,13 @@ function showMovie(movie) {
     property: 'storyLine'
   }];
 
+  const descriptionHTML = properties.reduce((html, property) => {
+    html += `
+      <dt class="col-sm-3">${property.title}</dt>
+      <dd class="col-sm-9">${movie[property.property]}</dd>`;
+    return html;
+  }, '');
+
 
 
   section.outerHTML = `

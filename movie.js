@@ -11,6 +11,28 @@ function showMovie(movie) {
   const section = document.createElement('section')
   main.appendChild(section)
 
+  const date = dateFns.parse(movie.datePublished);
+  movie.datePublished = dateFns.format(date, 'MMMM Do YYYY');
+
+  const properties = [{
+    title: 'Rating',
+    property: 'rating'
+  }, {
+    title: 'Run Time',
+    property: 'runTime'
+  }, {
+    title: 'Released',
+    property: 'datePublished'
+  }, {
+    title: 'Summary',
+    property: 'summary'
+  }, {
+    title: 'Story Line',
+    property: 'storyLine'
+  }];
+
+
+
   section.outerHTML = `
     <section class="row">
       <h1 class="text-center">${movie.title}</h1>

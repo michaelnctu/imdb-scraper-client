@@ -12,7 +12,10 @@ function formSubmitted(event) {
 
   const searchTerm = searchInput.value;
   getSearchResults(searchTerm)
-    .then(showResults);
+    .then(showResults)
+    .then(results => {
+      console.log(results)
+    })
 }
 
 function getSearchResults(searchTerm) {

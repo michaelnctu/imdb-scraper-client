@@ -1,7 +1,18 @@
 const main = document.querySelector('main');
 const imdbID = window.location.search.match(/imdbID=(.*)/)[1];
-const BASE_URL = 'http://node-env.eba-9dp3chmx.us-east-2.elasticbeanstalk.com/'; //aws
+// const BASE_URL = 'http://node-env.eba-9dp3chmx.us-east-2.elasticbeanstalk.com/'; //aws
+const BASE_URL = 'http://localhost:3000/' //目前locally 操作
 
+const form = document.querySelector('form');
+
+form.addEventListener('submit', formSubmitted);
+
+function formSubmitted(event) {
+  event.preventDefault(); //page doesn't refresh
+  console.log('Saved!')
+
+  postMovie(imdbID)  //觸動後端的post 因此資料庫更新
+}
 
 
 function getMovie(imdbID) {
@@ -16,22 +27,24 @@ function showMovie(movie) {
   const date = dateFns.parse(movie.datePublished);
   movie.datePublished = dateFns.format(date, 'MMMM Do YYYY');
 
-  const properties = [{
-    title: 'Rating',
-    property: 'rating'
-  }, {
-    title: 'Run Time',
-    property: 'runTime'
-  }, {
-    title: 'Released',
-    property: 'datePublished'
-  }, {
-    title: 'Summary',
-    property: 'summary'
-  }, {
-    title: 'Story Line',
-    property: 'storyLine'
-  }];
+  const properties = [
+
+    {
+      title: 'Rating',
+      property: 'rating'
+    }, {
+      title: 'Run Time',
+      property: 'runTime'
+    }, {
+      title: 'Released',
+      property: 'datePublished'
+    }, {
+      title: 'Summary',
+      property: 'summary'
+    }, {
+      title: 'Story Line',
+      property: 'storyLine'
+    }];
 
   const descriptionHTML = properties.reduce((html, property) => {
     html += `
@@ -57,6 +70,17 @@ function showMovie(movie) {
   `;
 
 }
+
+function postMovie(imdbID) {
+  axios.post(`${BASE_URL}movie/${imdbID}`, null)
+    .then(
+      console.log('success')
+    )
+    .catch(function (error) {
+      console.log(error);
+    });
+}
+
 
 getMovie(imdbID)
   .then(showMovie)

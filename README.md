@@ -12,7 +12,7 @@ git clone https://github.com/michaelnctu/imdb-scraper-client.git
 2. run lite-server
 
 # Concept
-Use axios as tool to get backend API data.
+I use axios as tool to get backend API data.
 
 1. By typing the movie you want
 

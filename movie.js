@@ -1,10 +1,11 @@
 const main = document.querySelector('main');
 const imdbID = window.location.search.match(/imdbID=(.*)/)[1];
-// const BASE_URL = 'http://node-env.eba-9dp3chmx.us-east-2.elasticbeanstalk.com/'; //aws
-const BASE_URL = 'http://localhost:3000/' //目前locally 操作
+const BASE_URL = 'http://node-env.eba-9dp3chmx.us-east-2.elasticbeanstalk.com/'; //aws
+// const BASE_URL = 'http://localhost:3000/' //目前locally 操作
 
 const form = document.querySelector('form');
 
+//儲存入資料庫
 form.addEventListener('submit', formSubmitted);
 
 function formSubmitted(event) {
